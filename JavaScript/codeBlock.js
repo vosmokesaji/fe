@@ -28,11 +28,58 @@ ScrollTop(5000, 10000);
 
 /*******************************************************************************/
 
+ //节流throttle代码：
+function throttle(fn) {
+    let canRun = true; // 通过闭包保存一个标记
+    return function () {
+        // 在函数开头判断标记是否为true，不为true则return 
+        if (!canRun) return;
+        // 立即设置为false
+        canRun = false;
+        // 将外部传入的函数的执行放在setTimeout中
+        setTimeout(() => { 
+        // 最后在setTimeout执行完毕后再把标记设置为true(关键)表示可以执行下一次循环了。
+        // 当定时器没有执行的时候标记永远是false，在开头被return掉
+            fn.apply(this, arguments);
+            canRun = true;
+        }, 500);
+    };
+}
+
+// 例子
+window.onscroll = this.throttle(this.onScroll);
 
 
+/*******************************************************************************/
 
+// 节流函数 时间戳版
+function throttle(func, wait) {
+    let previous = 0;
+    return function() {
+        let now = Date.now();
+        let context = this;
+        let args = arguments;
+        if (now - previous > wait) {
+            func.apply(context, args);
+            previous = now;
+        }
+    }
+}
 
-
+// 节流函数 定时器版
+function throttle(func, wait) {
+    let timeout;
+    return function() {
+        let context = this;
+        let args = arguments;
+        if (!timeout) {
+            timeout = setTimeout(() => {
+                timeout = null;
+                func.apply(context, args);
+            }, wait)
+        }
+    }
+}
 
 
 
