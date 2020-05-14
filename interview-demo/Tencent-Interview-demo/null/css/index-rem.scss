@@ -1,0 +1,212 @@
+body{
+    margin: 0;
+    font-family: 'PingFang SC', 'PingFang TC', 'Noto Sans CJK SC', 'Noto Sans CJK TC', 'Microsoft YaHei', Helvetica, Arial;
+}
+ul, li{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+@function px2rem($px) {
+    @return $px / 75px * 1rem;
+}
+
+
+.container{
+    min-height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    padding: px2rem(40px);
+    overflow-y: auto;
+}
+.register-box{
+    width: px2rem(400px);
+    padding: px2rem(40px);
+    background-color: #fff;
+    box-shadow: 0 0 px2rem(30px) rgba(0, 0, 0, 0.15);
+    transition: box-shadow .3s ease-out;
+    border-radius: px2rem(10px);
+}
+
+.box-title{
+    display: block;
+    font-size: px2rem(28px);
+    font-weight: bold;
+    text-align: center;
+}
+
+.form-list{
+    padding: px2rem(30px) 0;
+    font-size: px2rem(18px);
+}
+
+.form-item+.form-item{
+    margin-top: px2rem(15px);
+}
+
+.form-title{
+    display: block;
+    color: #7a7a7a;
+}
+.form-required{
+    color: #d55844;
+    font-style: normal;
+}
+
+
+.form-input{
+    margin-top: px2rem(10px);
+    display: block;
+    height: px2rem(40px);
+    width: 100%;
+    padding: 0 px2rem(15px);
+    box-sizing: border-box;
+    border-radius: px2rem(5px);
+    border: px2rem(2px) solid #f0f0f0;
+    font-size: px2rem(16px);
+    transition: border-color .25s ease-in-out;
+}
+
+.form-input:focus{
+    outline: 0;
+    border-color: #5198d6;
+}
+
+.form-error-tips{
+    min-height: px2rem(30px);
+    line-height: px2rem(30px);
+    color: #d55844;
+    font-size: px2rem(16px);
+}
+.form-error-tips-words{
+    opacity: 0;
+    transition: opacity .25s ease-in-out;
+}
+
+
+.error-form{
+    .form-input{
+        border-color: #d55844;
+    }
+    .form-error-tips-words{
+        opacity: 1;
+    }
+}
+
+
+.btn{
+    display: block;
+    width: 100%;
+    height: px2rem(42px);
+    font-size: px2rem(18px);
+    border-radius: px2rem(5px);
+    border: none;
+    background-color: #5198d6;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color .25s ease-in-out;
+}
+.btn:focus{
+    outline: 0;
+    background-color: #3088d5;
+}
+.btn:hover{
+    outline: 0;
+    background-color: #3088d5;
+}
+
+.btn:disabled {
+    color: hsla(0,0%,100%,.5);
+    opacity: .5;
+    cursor: not-allowed;
+}
+.btn:disabled:hover {
+    color: hsla(0,0%,100%,.5);
+    opacity: .5;
+    background-color: #5198d6;
+}
+
+@media only screen and (max-width: 749px) {
+        
+    .container{
+        overflow-y: auto;
+    }
+    
+    .register-box{
+        width: px2rem(630px);
+        padding: px2rem(30px);
+        background-color: #fff;
+        box-shadow: 0 0 px2rem(30px) rgba(0, 0, 0, 0.15);
+        transition: box-shadow .3s ease-out;
+        border-radius: px2rem(10px);
+    }
+    
+    .box-title{
+        display: block;
+        font-size: px2rem(40px);
+        font-weight: bold;
+        text-align: center;
+    }
+    
+    .form-list{
+        padding: px2rem(30px) 0;
+        font-size: px2rem(30px);
+    }
+    
+    .form-item+.form-item{
+        margin-top: px2rem(30px);
+    }
+    
+    .form-title{
+        display: block;
+        color: #7a7a7a;
+    }
+    .form-required{
+        color: #d55844;
+        font-style: normal;
+    }
+    
+    
+    .form-input{
+        margin-top: px2rem(20px);
+        display: block;
+        height: px2rem(80px);
+        width: 100%;
+        padding: 0 px2rem(20px);
+        box-sizing: border-box;
+        border-radius: px2rem(10px);
+        border: px2rem(2px) solid #f0f0f0;
+        font-size: px2rem(26px);
+        transition: border-color .25s ease-in-out;
+    }
+    
+    .form-error-tips{
+        min-height: px2rem(60px);
+        line-height: px2rem(60px);
+        color: #d55844;
+        font-size: px2rem(26px);
+    }
+    .btn{
+        width: 100%;
+        height: px2rem(80px);
+        font-size: px2rem(30px);
+        border-radius: px2rem(10px);
+        border: none;
+        background-color: #5198d6;
+        color: #fff;
+        cursor: pointer;
+        transition: background-color .25s ease-in-out;
+    }
+
+}
+
+// @media only screen and (max-width: px2rem(429px)){ 
+//     .container{
+//         justify-content: flex-start;
+//     }
+// }
