@@ -1,0 +1,128 @@
+body {
+  margin: 0;
+  font-family: "PingFang SC", "PingFang TC", "Noto Sans CJK SC", "Noto Sans CJK TC", "Microsoft YaHei", Helvetica, Arial;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+.register-box {
+  width: 400px;
+  padding: 40px;
+  background-color: #fff;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+
+.box-title {
+  display: block;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.form-list {
+  padding: 30px 0;
+  font-size: 18px;
+}
+
+.form-item + .form-item {
+  margin-top: 15px;
+}
+
+.form-title {
+  display: block;
+  color: #7a7a7a;
+}
+
+.form-required {
+  color: #d55844;
+  font-style: normal;
+}
+
+.form-input {
+  margin-top: 10px;
+  display: block;
+  height: 40px;
+  width: 100%;
+  padding: 0 15px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 2px solid #f0f0f0;
+  font-size: 16px;
+  transition: border-color 0.25s ease-in-out;
+}
+
+.form-input:focus {
+  outline: 0;
+  border-color: #5198d6;
+}
+
+.form-error-tips {
+  min-height: 30px;
+  line-height: 30px;
+  color: #d55844;
+  font-size: 16px;
+}
+
+.form-error-tips-words {
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.error-form .form-input {
+  border-color: #d55844;
+}
+.error-form .form-error-tips-words {
+  opacity: 1;
+}
+
+.btn {
+  width: 100%;
+  height: 42px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: none;
+  background-color: #5198d6;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.25s ease-in-out;
+}
+
+.btn:focus {
+  outline: 0;
+  background-color: #3088d5;
+}
+
+.btn:hover {
+  outline: 0;
+  background-color: #3088d5;
+}
+
+.btn:disabled {
+  color: rgba(255, 255, 255, 0.5);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn:disabled:hover {
+  color: rgba(255, 255, 255, 0.5);
+  opacity: 0.5;
+  background-color: #5198d6;
+}
+
+/*# sourceMappingURL=index.css.map */
