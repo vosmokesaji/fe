@@ -11,45 +11,69 @@
     <div class="container">
         <div class="register-box">
             <span class="box-title">Register With Us</span>
-            <form action="" id="register">
+            <form action="" id="register" data-valid-form>
                 <ul class="form-list">
-                    <li class="form-item error-form">
-                        <span class="form-title">Username</span>
-                        <input type="text" placeholder="Enter username" class="form-input">
+                    <li class="form-item">
+                        <span class="form-title">Username <em class="form-required">*</em></span>
+                        <input 
+                            type="text" 
+                            name="username" 
+                            placeholder="Enter username" 
+                            class="form-input" 
+                            data-valid="notempty|length:3">
                         <div class="form-error-tips">
-                            <span class="form-error-tips-words">Username must be at least 3 characters</span>
+                            <span class="form-error-tips-words"></span>
                         </div>
                     </li>
                     
-                    <li class="form-item error-form">
-                        <span class="form-title">Email</span>
-                        <input type="text" placeholder="Enter email" class="form-input">
+                    <li class="form-item">
+                        <span class="form-title">Email <em class="form-required">*</em></span>
+                        <input 
+                            type="text" 
+                            name="email" 
+                            placeholder="Enter email" 
+                            class="form-input" 
+                            data-valid="notempty|email">
                         <div class="form-error-tips">
-                            <span class="form-error-tips-words">Email is not valid</span>
+                            <span class="form-error-tips-words"></span>
                         </div>
                     </li>
                     
-                    <li class="form-item error-form">
-                        <span class="form-title">Password</span>
-                        <input type="text" placeholder="Enter password" class="form-input">
+                    <li class="form-item">
+                        <span class="form-title">Password <em class="form-required">*</em></span>
+                        <input 
+                            type="password" 
+                            name="password" 
+                            id="password" 
+                            placeholder="Enter password" 
+                            class="form-input" 
+                            data-valid="notempty|length:6|equal:#password2">
                         <div class="form-error-tips">
-                            <span class="form-error-tips-words">Password must be at least 6 characters</span>
+                            <span class="form-error-tips-words"></span>
                         </div>
                     </li>
                     
-                    <li class="form-item error-form">
-                        <span class="form-title">Confirm Password</span>
-                        <input type="text" placeholder="Enter password again" class="form-input">
+                    <li class="form-item">
+                        <span class="form-title">Confirm Password <em class="form-required">*</em></span>
+                        <input 
+                            type="password" 
+                            name="password2" 
+                            id="password2" 
+                            placeholder="Enter password again" 
+                            class="form-input" 
+                            data-valid="notempty|length:6|equal:#password">
                         <div class="form-error-tips">
-                            <span class="form-error-tips-words">Password2 is required</span>
+                            <span class="form-error-tips-words"></span>
                         </div>
                     </li>
-                    
                 </ul>
 
-                <button type="submit" class="btn">Submit</button>
+                <button type="submit" class="btn" >Submit</button>
             </form>
         </div>
     </div>
+    
+    <script src="./js/jquery.js"></script>
+    <script src="./js/index.js"></script>
 </body>
 </html>
