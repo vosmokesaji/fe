@@ -7,9 +7,12 @@ ul, li{
     padding: 0;
     list-style: none;
 }
+em{
+    font-style: normal;
+}
 
 @function px2rem($px) {
-    @return $px / 75px * 1rem;
+    @return $px / 15px * 1rem;
 }
 
 
@@ -29,15 +32,14 @@ ul, li{
     padding: px2rem(40px);
     background-color: #fff;
     box-shadow: 0 0 px2rem(30px) rgba(0, 0, 0, 0.15);
-    transition: box-shadow .3s ease-out;
+    transition: all .3s ease-out;
     border-radius: px2rem(10px);
 }
 
 .box-title{
-    display: block;
     font-size: px2rem(28px);
-    font-weight: bold;
     text-align: center;
+    margin: 0;
 }
 
 .form-list{
@@ -50,21 +52,23 @@ ul, li{
 }
 
 .form-title{
-    display: block;
+    display: inline-block;
     color: #7a7a7a;
 }
 .form-required{
     color: #d55844;
-    font-style: normal;
 }
 
 
+.form-input-box{
+    position: relative;
+}
 .form-input{
     margin-top: px2rem(10px);
     display: block;
     height: px2rem(40px);
     width: 100%;
-    padding: 0 px2rem(15px);
+    padding: 0 px2rem(35px) 0 px2rem(15px);
     box-sizing: border-box;
     border-radius: px2rem(5px);
     border: px2rem(2px) solid #f0f0f0;
@@ -75,6 +79,27 @@ ul, li{
 .form-input:focus{
     outline: 0;
     border-color: #5198d6;
+}
+
+.form-input-clean{
+    position: absolute;
+    font: 0/0 a;
+    display: none;
+    width: px2rem(40px);
+    height: px2rem(40px);
+    // background-color: #0fc;
+    top: px2rem(0px);
+    right: px2rem(0px);
+    background-image: url('../images/clean.png');
+    background-size: px2rem(16px) px2rem(16px);
+    background-position: center;
+    background-repeat: no-repeat;
+
+    // transition: opacity .2s ease-in;
+    // opacity: 0;
+}
+.form-input-clean.active{
+    display: block;
 }
 
 .form-error-tips{
@@ -139,7 +164,7 @@ ul, li{
     
     .register-box{
         width: px2rem(630px);
-        padding: px2rem(30px);
+        padding: px2rem(40px);
         background-color: #fff;
         box-shadow: 0 0 px2rem(30px) rgba(0, 0, 0, 0.15);
         transition: box-shadow .3s ease-out;
@@ -184,7 +209,20 @@ ul, li{
         font-size: px2rem(26px);
         transition: border-color .25s ease-in-out;
     }
-    
+    .form-input-clean{
+        position: absolute;
+        font: 0/0 a;
+        display: none;
+        width: px2rem(78px);
+        height: px2rem(78px);
+        // background-color: #0fc;
+        top: px2rem(0px);
+        right: px2rem(0px);
+        background-image: url('../images/clean.png');
+        background-size: px2rem(24px) px2rem(24px);
+        background-position: center;
+        background-repeat: no-repeat;
+    }
     .form-error-tips{
         min-height: px2rem(60px);
         line-height: px2rem(60px);

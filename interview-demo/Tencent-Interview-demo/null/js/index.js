@@ -2,15 +2,37 @@ class FormValid {
     constructor(options){
         this.el = options.el;
         this.inputEl = options.inputEl;
+        this.cleanEl = this.el.getElementsByClassName("form-input-clean")[0];
         this.inputName = options.inputName;
         this.errorTipsEL = options.errorTipsEL;
         this.validRules = options.validRules;
 
         this.inputEl.addEventListener('input', e => {
             this.validateShow();
+            this.cleanBtnShow();
+        });
+
+        this.inputEl.addEventListener('focus', e => {
+            setTimeout(() => {
+                this.cleanBtnShow();
+            },200)
+        });
+
+        this.inputEl.addEventListener('blur', e => {
+            setTimeout(() => {
+                console.log("blur setTimeout");
+                this.cleanEl.classList.remove("active");
+            },200)
+        });
+
+        this.cleanEl.addEventListener('click', e => {
+            this.inputEl.value = "";
+            this.inputEl.focus();
+            this.cleanEl.classList.remove("active");
         });
     }
 
+    // 根据表单校验的结果 更新视图 （ DOM 操作）
     validateShow(){
         const value = this.inputEl.value;
         const validResult = this.validate(value);
@@ -23,10 +45,9 @@ class FormValid {
             this.el.classList.add("error-form");
 
         }else{
-
-            if(validResult.rule === "equal"){
-                const another = validResult.params[0] === "password" ? "password2" : "password";
-                document.getElementById(another).parentElement.classList.remove("error-form")
+            if(this.inputEl.getAttribute("type") === "password"){
+                const another = this.inputEl.getAttribute("id") === "password" ? "password2" : "password";
+                document.getElementById(another).parentElement.parentElement.classList.remove("error-form");
             }
 
             this.el.classList.remove("error-form");
@@ -35,6 +56,7 @@ class FormValid {
         return validResult;
     }
 
+    // 校验表单内容，返回校验结果
     validate(value){
         let validResult = {};
         const validRules = this.validRules;
@@ -69,10 +91,19 @@ class FormValid {
         console.log(`校验 获得结果`, validResult);
         return validResult;
     }
+
+    // 更新 清除按钮的 展示状态
+    cleanBtnShow(){
+        if(this.inputEl.value.length){
+            this.cleanEl.classList.add("active");
+        }else{
+            this.cleanEl.classList.remove("active");
+        }
+    }
 }
 
 
-
+// 实例化表单校验
 const formItems = document.querySelectorAll(".form-item");
 const formValidList = [];
 
@@ -92,22 +123,22 @@ for(i = 0; i < formItems.length; i++){
     });
 }
 
+// 表单提交时的校验 以及提交
 document.getElementById("register").addEventListener("submit", e => {
     e.preventDefault();
     let pass = true,
         i = 0,
         l = formValidList.length;
 
+    // 逐条校验
     for(; i < l; i++){
         if(formValidList[i].validateShow().error){
             pass = false;
         }
     }
-
     
     if(pass){
         const submitBtn = document.getElementById("submitBtn");
-        
         submitBtn.setAttribute("disabled","disabled");
 
         setTimeout(function(){
@@ -161,18 +192,5 @@ const errorTipsMap = {
 }
 
 
-// 移动端适配
-function resetFontSize(){
-    const windowWidth = window.innerWidth;
-    let fontSize;
-    
-    if (windowWidth < 750){
-        fontSize = windowWidth / 10;
-    }else{
-        fontSize = 75;
-    }
-    document.documentElement.setAttribute("style", `font-size: ${fontSize}px`);
-}
-
-resetFontSize();
-window.onresize = resetFontSize;
+// 自动聚焦
+document.getElementById("username").focus();

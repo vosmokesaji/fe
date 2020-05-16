@@ -9,6 +9,10 @@ ul, li {
   list-style: none;
 }
 
+em {
+  font-style: normal;
+}
+
 .container {
   min-height: 100vh;
   width: 100vw;
@@ -17,55 +21,57 @@ ul, li {
   flex-shrink: 0;
   justify-content: center;
   align-items: center;
-  padding: 0.5333333333rem;
+  padding: 2.6666666667rem;
   overflow-y: auto;
 }
 
 .register-box {
-  width: 5.3333333333rem;
-  padding: 0.5333333333rem;
+  width: 26.6666666667rem;
+  padding: 2.6666666667rem;
   background-color: #fff;
-  box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.15);
-  transition: box-shadow 0.3s ease-out;
-  border-radius: 0.1333333333rem;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-out;
+  border-radius: 0.6666666667rem;
 }
 
 .box-title {
-  display: block;
-  font-size: 0.3733333333rem;
-  font-weight: bold;
+  font-size: 1.8666666667rem;
   text-align: center;
+  margin: 0;
 }
 
 .form-list {
-  padding: 0.4rem 0;
-  font-size: 0.24rem;
+  padding: 2rem 0;
+  font-size: 1.2rem;
 }
 
 .form-item + .form-item {
-  margin-top: 0.2rem;
+  margin-top: 1rem;
 }
 
 .form-title {
-  display: block;
+  display: inline-block;
   color: #7a7a7a;
 }
 
 .form-required {
   color: #d55844;
-  font-style: normal;
+}
+
+.form-input-box {
+  position: relative;
 }
 
 .form-input {
-  margin-top: 0.1333333333rem;
+  margin-top: 0.6666666667rem;
   display: block;
-  height: 0.5333333333rem;
+  height: 2.6666666667rem;
   width: 100%;
-  padding: 0 0.2rem;
+  padding: 0 2.3333333333rem 0 1rem;
   box-sizing: border-box;
-  border-radius: 0.0666666667rem;
-  border: 0.0266666667rem solid #f0f0f0;
-  font-size: 0.2133333333rem;
+  border-radius: 0.3333333333rem;
+  border: 0.1333333333rem solid #f0f0f0;
+  font-size: 1.0666666667rem;
   transition: border-color 0.25s ease-in-out;
 }
 
@@ -74,11 +80,29 @@ ul, li {
   border-color: #5198d6;
 }
 
+.form-input-clean {
+  position: absolute;
+  font: 0/0 a;
+  display: none;
+  width: 2.6666666667rem;
+  height: 2.6666666667rem;
+  top: 0rem;
+  right: 0rem;
+  background-image: url("../images/clean.png");
+  background-size: 1.0666666667rem 1.0666666667rem;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.form-input-clean.active {
+  display: block;
+}
+
 .form-error-tips {
-  min-height: 0.4rem;
-  line-height: 0.4rem;
+  min-height: 2rem;
+  line-height: 2rem;
   color: #d55844;
-  font-size: 0.2133333333rem;
+  font-size: 1.0666666667rem;
 }
 
 .form-error-tips-words {
@@ -96,9 +120,9 @@ ul, li {
 .btn {
   display: block;
   width: 100%;
-  height: 0.56rem;
-  font-size: 0.24rem;
-  border-radius: 0.0666666667rem;
+  height: 2.8rem;
+  font-size: 1.2rem;
+  border-radius: 0.3333333333rem;
   border: none;
   background-color: #5198d6;
   color: #fff;
@@ -134,28 +158,28 @@ ul, li {
   }
 
   .register-box {
-    width: 8.4rem;
-    padding: 0.4rem;
+    width: 42rem;
+    padding: 2.6666666667rem;
     background-color: #fff;
-    box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.15);
     transition: box-shadow 0.3s ease-out;
-    border-radius: 0.1333333333rem;
+    border-radius: 0.6666666667rem;
   }
 
   .box-title {
     display: block;
-    font-size: 0.5333333333rem;
+    font-size: 2.6666666667rem;
     font-weight: bold;
     text-align: center;
   }
 
   .form-list {
-    padding: 0.4rem 0;
-    font-size: 0.4rem;
+    padding: 2rem 0;
+    font-size: 2rem;
   }
 
   .form-item + .form-item {
-    margin-top: 0.4rem;
+    margin-top: 2rem;
   }
 
   .form-title {
@@ -169,30 +193,44 @@ ul, li {
   }
 
   .form-input {
-    margin-top: 0.2666666667rem;
+    margin-top: 1.3333333333rem;
     display: block;
-    height: 1.0666666667rem;
+    height: 5.3333333333rem;
     width: 100%;
-    padding: 0 0.2666666667rem;
+    padding: 0 1.3333333333rem;
     box-sizing: border-box;
-    border-radius: 0.1333333333rem;
-    border: 0.0266666667rem solid #f0f0f0;
-    font-size: 0.3466666667rem;
+    border-radius: 0.6666666667rem;
+    border: 0.1333333333rem solid #f0f0f0;
+    font-size: 1.7333333333rem;
     transition: border-color 0.25s ease-in-out;
   }
 
+  .form-input-clean {
+    position: absolute;
+    font: 0/0 a;
+    display: none;
+    width: 5.2rem;
+    height: 5.2rem;
+    top: 0rem;
+    right: 0rem;
+    background-image: url("../images/clean.png");
+    background-size: 1.6rem 1.6rem;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
   .form-error-tips {
-    min-height: 0.8rem;
-    line-height: 0.8rem;
+    min-height: 4rem;
+    line-height: 4rem;
     color: #d55844;
-    font-size: 0.3466666667rem;
+    font-size: 1.7333333333rem;
   }
 
   .btn {
     width: 100%;
-    height: 1.0666666667rem;
-    font-size: 0.4rem;
-    border-radius: 0.1333333333rem;
+    height: 5.3333333333rem;
+    font-size: 2rem;
+    border-radius: 0.6666666667rem;
     border: none;
     background-color: #5198d6;
     color: #fff;

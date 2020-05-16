@@ -1,80 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="font-size: 15px;">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tencent Interview Demo - jquery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Register With Us</title>
 
+    <script>
+        // 移动端适配
+        function resetFontSize(){
+            const windowWidth = window.innerWidth;
+            let fontSize;
+            
+            if (windowWidth < 750){
+                fontSize = windowWidth / 50;
+            }else{
+                fontSize = 15;
+            }
+            document.documentElement.setAttribute("style", `font-size: ${fontSize}px`);
+        }
+        resetFontSize();
+        window.onresize = resetFontSize;
+    </script>
     <link rel="stylesheet" href="./css/index-rem.css">
 </head>
 <body>
     <div class="container">
-        <div class="register-box">
-            <span class="box-title">Register With Us</span>
-            <form action="" id="register" οnsubmit="return false;">
-                <ul class="form-list">
-                    <li class="form-item">
-                        <span class="form-title">Username <em class="form-required">*</em></span>
-                        <input
-                            autocomplete="off"  
-                            type="text" 
-                            name="username" 
-                            placeholder="Enter username" 
-                            class="form-input" 
-                            data-valid="notempty|length:3">
+        <main class="register-box">
+            <h1 class="box-title">Register With Us</h1>
+            <form action="#" method="post" id="register" autocomplete="off">
+                <div class="form-list">
+                    <div class="form-item">
+                        <label class="form-title" for="username">Username <em class="form-required">*</em></label>
+                        <div class="form-input-box">
+                            <input  
+                                type="text" 
+                                name="username" 
+                                id="username" 
+                                placeholder="Enter username" 
+                                class="form-input" 
+                                data-valid="notempty|length:3"
+                                maxlength="120">
+                            <label for="username" class="form-input-clean">clean</label>
+                        </div>
+                        
                         <div class="form-error-tips">
                             <span class="form-error-tips-words"></span>
                         </div>
-                    </li>
+                    </div>
                     
-                    <li class="form-item">
-                        <span class="form-title">Email <em class="form-required">*</em></span>
-                        <input
-                            autocomplete="off"  
-                            type="text" 
-                            name="email" 
-                            placeholder="Enter email" 
-                            class="form-input" 
-                            data-valid="notempty|email">
+                    <div class="form-item">
+                        <label class="form-title" for="email">Email <em class="form-required">*</em></label>
+                        <div class="form-input-box">
+                            <input  
+                                type="email" 
+                                name="email" 
+                                id="email" 
+                                placeholder="Enter email" 
+                                class="form-input" 
+                                data-valid="notempty|email"
+                                maxlength="254">
+                            <label for="email" class="form-input-clean">clean</label>
+                        </div>
                         <div class="form-error-tips">
                             <span class="form-error-tips-words"></span>
                         </div>
-                    </li>
+                    </div>
                     
-                    <li class="form-item">
-                        <span class="form-title">Password <em class="form-required">*</em></span>
-                        <input
-                            autocomplete="off"  
-                            type="password" 
-                            name="password" 
-                            id="password" 
-                            placeholder="Enter password" 
-                            class="form-input" 
-                            data-valid="notempty|length:6|equal:#password2">
+                    <div class="form-item">
+                        <label class="form-title" for="password">Password <em class="form-required">*</em></label>
+                        <div class="form-input-box">
+                            <input  
+                                type="password" 
+                                name="password" 
+                                id="password" 
+                                placeholder="Enter password" 
+                                class="form-input" 
+                                data-valid="notempty|length:6|equal:#password2"
+                                maxlength="32">
+                            <label for="password" class="form-input-clean">clean</label>
+                        </div>
                         <div class="form-error-tips">
                             <span class="form-error-tips-words"></span>
                         </div>
-                    </li>
+                    </div>
                     
-                    <li class="form-item">
-                        <span class="form-title">Confirm Password <em class="form-required">*</em></span>
-                        <input
-                            autocomplete="off"  
-                            type="password" 
-                            name="password2" 
-                            id="password2" 
-                            placeholder="Enter password again" 
-                            class="form-input" 
-                            data-valid="notempty|length:6|equal:#password">
+                    <div class="form-item">
+                        <label class="form-title" for="password2">Confirm Password <em class="form-required">*</em></label>
+                        <div class="form-input-box">
+                            <input  
+                                type="password" 
+                                name="password2" 
+                                id="password2" 
+                                placeholder="Enter password again" 
+                                class="form-input" 
+                                data-valid="notempty|length:6|equal:#password"
+                                maxlength="32">
+                                <label for="password2" class="form-input-clean">clean</label>
+                        </div>
                         <div class="form-error-tips">
                             <span class="form-error-tips-words"></span>
                         </div>
-                    </li>
-                </ul>
+                    </div>
+                </div>
 
                 <button type="submit" class="btn" id="submitBtn">Submit</button>
             </form>
-        </div>
+        </main>
     </div>
     
     <script src="./js/index.js"></script>
